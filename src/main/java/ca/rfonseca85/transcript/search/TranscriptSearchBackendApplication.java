@@ -1,4 +1,4 @@
-package ca.rfonseca.transcriptsearchbackend;
+package ca.rfonseca85.transcript.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
