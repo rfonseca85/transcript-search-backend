@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WebvttParser {
 
-    public List<TranscriptData> parse(InputStream inputStream) throws IOException {
+    public List<TranscriptData> parse(InputStream inputStream, String groupName, String videoName) throws IOException {
 
         List<TranscriptData> transcriptDataList = new ArrayList<>();
 
@@ -31,8 +31,10 @@ public class WebvttParser {
                         transcriptData.setEndTime(endTime);
                         startTime = new String();
                         endTime = new String();
-                        transcriptData.setVideoName(line.split(">")[0].replace("<v ", ""));
+                        transcriptData.setPerson(line.split(">")[0].replace("<v ", ""));
                         transcriptData.setPhrase(line.split(">")[1].replace("</v", ""));
+                        transcriptData.setGroupName(groupName);
+                        transcriptData.setVideoName(videoName);
                         transcriptDataList.add(transcriptData);
                     }
                 }

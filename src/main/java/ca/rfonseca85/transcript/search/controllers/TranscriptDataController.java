@@ -44,9 +44,13 @@ public class TranscriptDataController {
 
     @PostMapping("/uploadTranscript")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
+                                   @RequestParam("groupName") String groupName,
+                                   @RequestParam("videoName") String videoName,
                                    RedirectAttributes redirectAttributes) throws IOException {
 
-        List<TranscriptData> transcriptDataList = (List<TranscriptData>) new WebvttParser().parse(new BufferedInputStream(file.getInputStream()));
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(file.getInputStream());
+
+        List<TranscriptData> transcriptDataList = (List<TranscriptData>) new WebvttParser().parse(bufferedInputStream, groupName, videoName);
         transcriptDataService.createTranscriptDataIndices(transcriptDataList);
 
         redirectAttributes.addFlashAttribute("message",
