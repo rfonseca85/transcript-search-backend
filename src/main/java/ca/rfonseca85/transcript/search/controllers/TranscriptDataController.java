@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/transcript")
 public class TranscriptDataController {
+
     @Autowired
     private TranscriptDataService transcriptDataService;
 
