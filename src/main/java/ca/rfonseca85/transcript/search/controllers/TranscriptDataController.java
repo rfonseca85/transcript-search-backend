@@ -31,6 +31,11 @@ public class TranscriptDataController {
         return transcriptDataService.findBySearchTerm(term);
     }
 
+    @GetMapping("/search2")
+    public List<TranscriptData> searchTranscriptDataByPersonAndPhrase(@RequestParam("person") String person, @RequestParam("phrase") String phrase) {
+        return transcriptDataService.findByPersonAndPhrase(person, phrase);
+    }
+
     @PostMapping
     public TranscriptData addTranscriptData(@RequestBody TranscriptData transcriptData) {
 
