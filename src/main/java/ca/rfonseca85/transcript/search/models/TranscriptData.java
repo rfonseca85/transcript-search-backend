@@ -17,6 +17,9 @@ public class TranscriptData
     @Field(type = FieldType.Text, name = "videoName")
     private String videoName;
 
+    @Field(type = FieldType.Text, name = "person")
+    private String person;
+
     @Field(type = FieldType.Text, name = "phrase")
     private String phrase;
 
@@ -48,6 +51,14 @@ public class TranscriptData
 
     public void setVideoName(String videoName) {
         this.videoName = videoName;
+    }
+
+    public String getPerson() {
+        return person;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
     }
 
     public String getPhrase() {

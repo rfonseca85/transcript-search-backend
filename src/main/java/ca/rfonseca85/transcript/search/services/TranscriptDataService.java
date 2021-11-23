@@ -32,9 +32,13 @@ public class TranscriptDataService
         return transcriptDataRepository.findById(id).get();
     }
 
-    public List<TranscriptData> findBySearchTerm (String term)
-    {
+    public List<TranscriptData> findBySearchTerm (String term) {
         return transcriptDataRepository.findByPhraseContaining(term);
+    }
+
+    public List<TranscriptData> findByPersonAndPhrase (String person, String phrase)
+    {
+        return transcriptDataRepository.findByPersonAndPhrase(person, phrase);
     }
 
 }
