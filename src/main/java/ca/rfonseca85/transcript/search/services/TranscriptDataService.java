@@ -32,8 +32,8 @@ public class TranscriptDataService
         return transcriptDataRepository.findById(id).get();
     }
 
-    public List<TranscriptData> findBySearchTerm (String term) {
-        return transcriptDataRepository.findByPhraseContaining(term);
+    public List<TranscriptData> findByPhrase (String phrase) {
+        return transcriptDataRepository.findByPhrase(phrase);
     }
 
     public List<TranscriptData> findByPersonAndPhrase (String person, String phrase)

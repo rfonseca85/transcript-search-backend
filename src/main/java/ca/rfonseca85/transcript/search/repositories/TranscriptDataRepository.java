@@ -9,7 +9,7 @@ public interface TranscriptDataRepository extends ElasticsearchRepository<Transc
 {
     List<TranscriptData> findByVideoName(String videoName);
 
-    List<TranscriptData> findByPhraseContaining(String phrase);
+    List<TranscriptData> findByPhrase(String phrase);
 
     List<TranscriptData> findByPersonAndPhrase(String person, String phrase);
 }

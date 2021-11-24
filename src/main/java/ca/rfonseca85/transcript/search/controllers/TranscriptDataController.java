@@ -27,13 +27,13 @@ public class TranscriptDataController {
     }
 
     @GetMapping("/search")
-    public List<TranscriptData> searchTranscriptDataByTerm(@RequestParam("term") String term) {
-        return transcriptDataService.findBySearchTerm(term);
-    }
-
-    @GetMapping("/search2")
-    public List<TranscriptData> searchTranscriptDataByPersonAndPhrase(@RequestParam("person") String person, @RequestParam("phrase") String phrase) {
-        return transcriptDataService.findByPersonAndPhrase(person, phrase);
+    public List<TranscriptData> searchTranscriptData(@RequestParam("phrase") String phrase,
+                                                     @RequestParam(required = false) String person) {
+        if(person!=null && !person.equals("")){
+            return transcriptDataService.findByPersonAndPhrase(person, phrase);
+        }else{
+            return transcriptDataService.findByPhrase(phrase);
+        }
     }
 
     @PostMapping
